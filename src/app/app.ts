@@ -1,10 +1,17 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet, Routes } from '@angular/router';
+import { Home } from './features/home/home';
+
+const routes: Routes = [
+  {
+    path: '',
+    component: Home,
+  },
+];
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
-  templateUrl: './app.html',
-  styleUrl: './app.scss',
+  imports: [RouterOutlet, Home],
+  template: `<app-home></app-home> <router-outlet></router-outlet>`,
 })
 export class App {}
