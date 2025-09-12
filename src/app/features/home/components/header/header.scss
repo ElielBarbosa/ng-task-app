@@ -1,0 +1,12 @@
+@import '../../../../../dist/scss/variaveis.scss';
+h2 {
+  color: white;
+}
+
+header {
+  background-color: $primary-color;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
