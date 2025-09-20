@@ -1,1 +1,8 @@
-<input type="text" name="" placeholder="Digite sua nova task aqui" id="" />
+<input
+  type="text"
+  name=""
+  placeholder="Digite sua nova task aqui"
+  id=""
+  [(ngModel)]="addItemTaskList"
+  (keyup.enter)="submitItemTaskList()"
+/>

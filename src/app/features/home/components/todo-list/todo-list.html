@@ -1,24 +1,37 @@
-<section>
+<section [ngClass]="{ loading: !taskList.length }">
+  @if (taskList.length) {
   <ul>
+    @for (task of taskList; track $index) {
     <li>
-      <input type="checkbox" />
-      <input type="text" />
+      <input type="checkbox" [(ngModel)]="task.checked" />
 
-      <button>X</button>
-    </li>
-    <li>
-      <input type="checkbox" />
-      <input type="text" />
+      <input type="text" [ngClass]="{ checked: task.checked }" [(ngModel)]="task.task" />
 
-      <button>X</button>
+      <button (click)="deleteItemTaskList($index)">
+        <svg
+          width="18"
+          height="18"
+          class="trach"
+          fill="none"
+          stroke="#484242"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M3 6h18"></path>
+          <path
+            d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+          ></path>
+        </svg>
+      </button>
     </li>
-    <li>
-      <input type="checkbox" />
-      <input type="text" />
-
-      <button>X</button>
-    </li>
+    }
   </ul>
+  }
 </section>
-<app-todo-input-add-items></app-todo-input-add-items>
-<app-todo-button-delete-all></app-todo-button-delete-all>
+<app-todo-input-add-items (emitItemTaskList)="setEmitTaskList($event)"></app-todo-input-add-items>
+@if (taskList.length) {
+<app-todo-button-delete-all (click)="deleteAllTaskList()"></app-todo-button-delete-all>
+}

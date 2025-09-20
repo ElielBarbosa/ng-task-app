@@ -6,7 +6,15 @@ section {
 
   background-color: $secondary-bg-color;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
   margin-top: 20px;
+
+  &.loading {
+    background-image: url('../../../../assets/images/ilustration-login.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50%;
+  }
 }
 
 ul {
@@ -15,6 +23,7 @@ ul {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    color: $secondary-text-color;
 
     margin-bottom: 10px;
     input {
@@ -40,6 +49,14 @@ ul {
       color: $danger-color;
       font-size: 20px;
       cursor: pointer;
+
+      img {
+        display: inline-block;
+        width: 10px;
+      }
+    }
+    .checked {
+      text-decoration: line-through;
     }
   }
 }
